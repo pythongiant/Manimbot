@@ -1,14 +1,6 @@
-# ManimAiGen - AI-Powered Manim Animation Generator
+# Manimbot - AI-Powered Manim Animation Generator
 
 Generate beautiful Manim animations using AI. Describe what you want to animate, and the system generates the code and renders it.
-
-## Features
-
-- 🤖 **AI-Powered Generation**: Uses TogetherAI's Kimi-K2-Thinking model to generate Manim code
-- 🎨 **Automated Rendering**: Generates and previews animations automatically
-- 📚 **Example Context**: Uses a library of examples to improve code generation
-- ⚡ **Quick Testing**: Low-quality rendering for fast iteration
-- 💾 **Code Persistence**: All generated code is saved for review and reuse
 
 ## Demo
 
