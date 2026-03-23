@@ -68,6 +68,8 @@ def main():
 
     if state.render_success:
         print(f"  Render : Success")
+        if state.video_path:
+            print(f"  Video  : {state.video_path}")
     else:
         print(f"  Render : Failed")
         if state.render_error:

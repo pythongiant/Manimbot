@@ -1,3 +1,4 @@
 .env
 venv
 generated_scenes/
+media

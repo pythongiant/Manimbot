@@ -65,6 +65,7 @@ class WorkflowState:
     render_success: bool = False
     render_error: Optional[str] = None
     output_path: Optional[str] = None
+    video_path: Optional[str] = None
 
     # Debugger output
     debug_attempts: int = 0

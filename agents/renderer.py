@@ -96,6 +96,13 @@ class RendererAgent(BaseAgent):
             if result.returncode == 0:
                 state.render_success = True
                 state.render_error = None
+
+                # Extract video file path from manim output
+                combined_output = (result.stdout or "") + (result.stderr or "")
+                video_match = re.search(r'File ready at \'(.+?)\'', combined_output)
+                if video_match:
+                    state.video_path = video_match.group(1)
+
                 state.add_message(self.role, f"Rendered {class_name} successfully")
                 self.log("Render successful")
             else:

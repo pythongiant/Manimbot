@@ -1,7 +1,9 @@
 """
 TogetherAI API Client for generating Manim code
 """
+import json
 import os
+import re
 from typing import Optional
 from together import Together
 
@@ -51,17 +53,24 @@ class TogetherAIClient:
         except Exception as e:
             raise RuntimeError(f"API request failed: {str(e)}")
 
+    def _extract_json_text(self, raw: str) -> str:
+        """Strip thinking tags and markdown fences, return the JSON string."""
+        text = raw.strip()
+        text = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL).strip()
+        text = re.sub(r'```(?:json)?\s*', '', text).strip()
+        # Validate it's actually JSON
+        json.loads(text)
+        return text
+
     def generate_json(self, messages: list, max_tokens: int = 2000) -> str:
         """
-        Generate a response with JSON structured output enforced by the API.
-
-        Args:
-            messages: List of message dictionaries with 'role' and 'content'
-            max_tokens: Maximum tokens to generate
+        Generate a JSON response. Tries response_format first, then falls back
+        to a regular call if the model doesn't support structured output.
 
         Returns:
-            Raw response string (guaranteed valid JSON by the API)
+            Raw response string containing valid JSON.
         """
+        # Attempt 1: structured output via response_format
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
@@ -71,14 +80,17 @@ class TogetherAIClient:
                 top_p=0.9,
                 response_format={"type": "json_object"},
             )
+            content = response.choices[0].message.content
+            return self._extract_json_text(content)
+        except (json.JSONDecodeError, Exception):
+            pass
 
-            if response.choices and len(response.choices) > 0:
-                return response.choices[0].message.content
-            else:
-                raise ValueError("Unexpected response format from TogetherAI API")
-
+        # Attempt 2: regular call without response_format (model may ignore it)
+        try:
+            content = self.generate_code(messages, max_tokens=max_tokens)
+            return self._extract_json_text(content)
         except Exception as e:
-            raise RuntimeError(f"API request failed: {str(e)}")
+            raise RuntimeError(f"JSON generation failed: {str(e)}")
     
     def generate_manim_scene(self, user_request: str, context_messages: list = None) -> str:
         """

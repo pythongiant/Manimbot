@@ -10,6 +10,10 @@ Generate beautiful Manim animations using AI. Describe what you want to animate,
 - ⚡ **Quick Testing**: Low-quality rendering for fast iteration
 - 💾 **Code Persistence**: All generated code is saved for review and reuse
 
+## Demo
+
+https://github.com/user/ManimAiGen/blob/main/GeneratedScene.mp4
+
 ## Quick Start (30 Seconds)
 
 ### 1. Install Dependencies
