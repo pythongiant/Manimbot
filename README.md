@@ -12,7 +12,7 @@ Generate beautiful Manim animations using AI. Describe what you want to animate,
 
 ## Demo
 
-![](GeneratedScene.mp4)
+https://raw.githubusercontent.com/pythongiant/Manimbot/main/GeneratedScene.mp4
 
 ## Quick Start (30 Seconds)
 
