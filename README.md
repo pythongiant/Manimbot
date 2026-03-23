@@ -12,7 +12,7 @@ Generate beautiful Manim animations using AI. Describe what you want to animate,
 
 ## Demo
 
-https://github.com/user/ManimAiGen/blob/main/GeneratedScene.mp4
+![](GeneratedScene.mp4)
 
 ## Quick Start (30 Seconds)
 
