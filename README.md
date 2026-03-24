@@ -6,6 +6,10 @@ Generate beautiful Manim animations using AI. Describe what you want to animate,
 
 ![Demo](demo.gif)
 
+## Architecture
+
+![Diagram](./ARCHITECTURE_MERMAID.svg)
+
 ## Quick Start (30 Seconds)
 
 ### 1. Install Dependencies

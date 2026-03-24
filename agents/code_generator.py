@@ -29,6 +29,7 @@ TEXT IN ANIMATION:
 - Use the Write animation to introduce text gradually
 - Add concluding text that summarizes the concept
 - Make text large enough to read clearly (font_size >= 36)
+- Make sure the text brings clarity to the concept
 
 CODE STRUCTURE:
 - Start with: from manim import *
