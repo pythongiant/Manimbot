@@ -6,6 +6,9 @@ Generate beautiful Manim animations using AI. Describe what you want to animate,
 
 ![Demo](demo.gif)
 
+### Current state with Integrals
+![Demo2](Integral.gif)
+
 ## Architecture
 
 ![Diagram](./ARCHITECTURE_MERMAID.svg)
