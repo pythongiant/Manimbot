@@ -40,24 +40,6 @@ Done! Your animation renders automatically.
 
 ## Detailed Setup Guide
 
-### Project Structure
-
-```
-ManimAiGen/
-├── main.py                 # Main entry point
-├── generator/
-│   ├── __init__.py
-│   └── ai_client.py       # TogetherAI API client
-├── utils/
-│   ├── __init__.py
-│   ├── prompt_generator.py # Prompt creation utilities
-│   └── scene_renderer.py   # Manim rendering engine
-├── examples/              # Example animations for context
-├── generated_scenes/      # Output directory for generated scenes
-├── requirements.txt       # Python dependencies
-├── .env.example          # Environment configuration template
-└── README.md             # This file
-```
 
 ### Prerequisites
 
